@@ -1,0 +1,397 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&family=Roboto+Slab:wght@100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+/* <--- Reset Start ---> */
+
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body, h1, h2, h3, h4, p,
+figure, blockquote, dl, dd {
+  margin-block-end: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1, h2, h3, h4,
+button, input, label {
+  line-height: 1.1;
+}
+
+/* Balance text wrapping on headings */
+h1, h2,
+h3, h4 {
+  text-wrap: balance;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input, button,
+textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}
+
+/* <--- Reset End ---> */
+
+
+/* <--- General Start ---> */
+
+:root {
+  
+  /* Fonts */
+  --bitter: "Bitter", serif;
+  --work-sans: "Work Sans", serif;
+  --roboto: "Roboto Slab", serif;
+
+  font-size: 16px;
+
+}
+
+html,
+body {
+  min-height: 100vh;
+  height: 100%;
+
+  font-family: var(--bitter);
+  background: #E4E4E4;
+
+}
+
+img {width: 100%; height: 100%;}
+
+.header {
+  background: #D9D9D9;
+  padding: 1em;
+
+}
+
+h2 {
+  text-transform: uppercase;
+  font-family: var(--work-sans);
+  width: fit-content;
+  margin: auto;
+
+}
+
+.main {
+  height: 100%;
+
+}
+
+/* <--- General End ---> */
+
+
+/* <--- Nav Start ---> */
+
+.hero-nav-wrapper {
+  height: 100vh;
+
+}
+
+.nav {
+  background: #D9D9D9;
+  height: 10%;
+  padding: 1em;
+
+}
+
+.img-div {
+  width: 60px;
+  height: 60px;
+  margin-left: auto;
+  border-radius: 100px;
+  border: 2px solid #aaa;
+
+}
+
+.myPhoto {
+  border-radius: 100px;
+
+}
+
+/* <--- Nav End ---> */
+
+/* <--- Hero Start ---> */
+
+.hero-section {
+  height: 86%;
+  width: 75%;
+  margin: auto;
+  position: relative;
+  display: flex;
+  align-items: center;
+  /* border: 2px solid black; */
+
+}
+
+.hero-text {
+  width: fit-content;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2.4rem;
+  /* border: 2px solid black; */
+
+}
+
+/* <--- Hero End ---> */
+
+/* <--- Projects Start ---> */
+
+.projects-section {
+  position: relative;
+  min-height: 100vh;
+
+}
+
+.projects-main {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 56.25%;
+  margin: auto;
+  /* margin-top: 1em; */
+  display: grid;
+  grid-template-areas:
+    /* "ardour testudo testudo" */
+    "nexus nexus nexus"
+    "nexus nexus nexus"
+    "bigthink bigthink bigthink";
+  grid-template-rows: 1fr 2fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  /* border: 2px solid black; */
+
+}
+
+.projects-main > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--work-sans);
+  font-weight: bolder;
+  font-size: 1.5rem;
+  color: white;
+  padding: 1em;
+  cursor: pointer;
+
+}
+
+.project-span {
+  width: fit-content;
+  margin: auto;
+
+}
+
+  /* Ardour */
+
+/* .ardour-wrapper {
+  grid-area: ardour;
+  height: 113px;
+
+}
+
+.ardour-front,
+.ardour-back { background: #7C8EF2; } */
+
+  /* Testudo */
+
+/* .testudo-wrapper { grid-area: testudo; }
+
+.testudo-front,
+.testudo-back { background: #A35A5A; } */
+
+  /* Nexus */
+
+.nexus-wrapper { grid-area: nexus; }
+
+.nexus-front,
+.nexus-back { background: #428E58; }
+
+  /* Bigthink */
+
+.bigthink-wrapper { grid-area: bigthink; height: 113px;}
+
+.bigthink-front,
+.bigthink-back { background: #5B5E73; }
+
+.nexus-wrapper,
+.bigthink-wrapper,
+.testudo-wrapper,
+.ardour-wrapper {
+  perspective: 1000px;
+
+}
+
+.project-description { font-size: 1rem; }
+
+.front,
+.back {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 20px;
+
+}
+
+.front,
+.back {
+  position: absolute;
+  backface-visibility: hidden;
+
+}
+
+.nexus-back { font-weight: 400; }
+.bigthink-back { font-weight: 400; }
+
+.ps {
+  position: absolute;
+  bottom: 5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #AAA;
+
+}
+
+/* <--- Projects End ---> */
+
+
+
+/* <--- Skills Start ---> */
+
+.skills-section {
+  min-height: 100vh;
+  position: relative;
+  justify-content: space-between;
+
+}
+
+.skills-main {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 40%;
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  /* border: 2px solid black; */
+
+}
+
+.skills-main > div {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  text-transform: uppercase;
+  /* border: 2px solid black; */justify-content: space-between;
+
+}
+
+.skills-main .icon {
+  font-size: 2rem;
+  cursor: pointer;
+
+}
+
+/* <--- Skills End ---> */
+
+
+/* <--- Education Start ---> */
+
+.education-section {
+  min-height: 100vh;
+  position: relative;
+
+}
+
+.education-main {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: fit-content;
+  width: 75%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+/* <--- Education End ---> */
+
+
+
+/* <--- Contact Start ---> */
+
+.contact-section {
+  min-height: 50vh;
+  position: relative;
+
+}
+
+.contact-main {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 75%;
+  
+}
+
+.email,
+.mobile {font-weight: bold;}
