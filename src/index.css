@@ -154,6 +154,7 @@ h2 {
 
 .myPhoto {
   border-radius: 100px;
+  object-fit: cover;
 
 }
 

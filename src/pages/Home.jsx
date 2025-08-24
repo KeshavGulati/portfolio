@@ -8,7 +8,7 @@ import '../App.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faReact, faFigma, faHtml5, faCss3Alt, faJs, faNode } from "@fortawesome/free-brands-svg-icons";
 import umdImg from "../assets/umd-img.jpg";
-import myPhoto from "../assets/haha4(github).jpeg";
+import myPhoto from "../assets/haha(5).jpg";
 
 function App() {
   const psRef = useRef(null);
@@ -29,7 +29,9 @@ function App() {
   const nexusFront = <span className="project-span">NEXUS</span>
   const nexusBack = 
     <span className="project-description">
-      Nexus is a very big and ambitious project that I am a part of with a big team. I am personally responsible for designing and creating the frontend aspects of an online IDE, which supports multiple languages such as Python, Java, C, etc, has an integrated AI tool, and several other complex functionalities such as version control, real-time sharding, etc. I am working with several teams to bring this project to life. <br />
+      Nexus is a very big and ambitious project that I am a part of with a team. I am personally responsible for designing and developing large parts of an online IDE with features such as live collab and AI integration that set it apart. It took a lot of work to bring this project to life, and we are continuing to improve it to better suit our niche. It can be viewed at 
+          <a href="https://nexusdevops.com/" className="nexus-link" target='__blank'> nexusdevops.com</a>.
+       <br />
     </span>
 
   const bigthinkFront = <span className="project-span">BIGTHINK AI</span>
