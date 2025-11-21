@@ -1,0 +1,138 @@
+/* <--- Hero Start ---> */
+
+.spokes-heading {
+  font-family: var(--work-sans);
+  font-size: 2rem;
+  font-weight: bold;
+
+}
+
+.hero-text {
+  max-width: 70%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+}
+
+.bigthink-description {
+  font-size: 1.5rem;
+
+}
+
+/* <--- Hero End ---> */
+
+
+/* <--- Work Section Start ---> */
+
+.work-section {
+  position: relative;
+  height: 100vh;
+
+}
+
+.work-main {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 80%;
+  width: 56.25%;
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+
+}
+
+.spokesCard-wrapper {
+  width: 40%;
+  perspective: 1000px;
+
+}
+
+
+.ringImgDiv { 
+  width: 50%; 
+  height: 90%;
+  border-radius: 10px;
+
+}
+
+.ringsImg {
+  width: 100%;
+  border-radius: 20px;
+
+}
+
+
+.spokesCard-front,
+.spokesCard-back {
+  height: 90%;
+  background: #5B5E73;
+  color: #fff;
+  font-family: var(--work-sans);
+  cursor: pointer;
+
+}
+
+.spokesCard-front,
+.spokesCard-back {
+  padding: 1rem;
+
+}
+
+
+/* <--- Work Section End ---> */
+
+
+/* <--- My Work Secton Start ---> */
+
+.myWorkSection {
+  position: relative;
+  height: 100vh;
+
+}
+
+.myWorkText {
+  position: absolute;
+  margin: auto;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.2rem;
+
+}
+
+
+
+/* <--- My Work Secton End ---> */
+
+
+/* <--- What I Used Section Start ---> */
+
+.skillsSection {
+  height: 100vh;
+
+}
+
+.tools-main {
+  position: relative;
+  height: 90%;
+  width: 50%;
+  margin: auto;
+
+}
+
+.tools-main__ul {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  list-style:square;
+  font-weight: 300;
+
+}
+
+.tools-main__li {
+  margin-top: 1rem;
+
+}

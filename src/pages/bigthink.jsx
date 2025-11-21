@@ -11,6 +11,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faReact, faFigma, faHtml5, faCss3Alt, faJs, faNode } from "@fortawesome/free-brands-svg-icons";
 import umdImg from "../assets/umd-img.jpg";
 import myPhoto from "../assets/haha4(github).jpeg";
+import Navbar from '../components/Navbar';
 
 function Bigthink() {
   const psRef = useRef(null);
@@ -35,13 +36,7 @@ function Bigthink() {
   return (
     <div className="main">
       <div className="hero-nav-wrapper">
-        <nav className="nav">
-          <div className="img-div">
-            <a href="https://www.linkedin.com/in/keshav-gulati/" target='__blank'>
-              <img className='myPhoto' src={ myPhoto } alt="" />
-            </a>
-          </div>
-        </nav>
+        <Navbar />
         <FadeIn className="hero-section">
           <p className="hero-text">
             <p className="bigthink-heading">BigTh!nk AI</p>
@@ -113,42 +108,6 @@ function Bigthink() {
           </ul>
         </FadeIn>
       </section>
-      {/* <section className="education-section">
-        <div className="education-header header">
-          <h2>education</h2>
-        </div>
-        <div className="education-main">
-          <FadeIn className="education-text-wrapper">
-            <h3>University of Maryland, College Park</h3>
-            <span className="bsc">Bachelor's of Science</span>
-            <p className="education_p">
-              Major: Computer Science <br />
-              Minor: Statistics <br />
-              Graduation: Spring '25
-            </p>
-          </FadeIn>
-          <FadeIn>
-            <div className="education-img">
-              <img src={ umdImg } alt="An image of mckeldin mall at the University of Maryland, College Park." />
-            </div>
-          </FadeIn>
-        </div>
-      </section>
-      <section className="contact-section">
-        <div className="contact-header header">
-          <h2>contact</h2>
-          <div className="contact-main">
-            <FadeIn>
-              <span className="email">Email</span> <br />
-              keshavgulati785@gmail.com
-              <br />
-              <br />
-              <span className="mobile">Mobile</span> <br />
-              +1 (240) 886 8955
-            </FadeIn>
-          </div>
-        </div>
-      </section> */}
     </div>
 
   )
