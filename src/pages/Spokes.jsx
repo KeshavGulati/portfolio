@@ -5,9 +5,14 @@ import "../index.css";
 import "./spokes.css"
 import RingImg from "../assets/RingsImg.png";
 import Navbar from '../components/Navbar';
+import useMediaQuery from '../utils/useMediaQuery';
 
 function Spokes() {
+
+  const isMobile = useMediaQuery("(max-width: 800px)");
+
   const spokesCardFront = <span className="project-span">In modern astronomy, we have a lot of images of Saturn, thanks to the Cassini spacecraft. With these images, we can get to see a lot of phenomena that take place on the rings of Saturn. One such phenomena that we notice is the presence of dust clouds, which seem to come and go, sometimes individually and sometimes in groups. These are called ‘spokes,’ and there are several theories about how they arise and what their significance is. Professor Hamilton has one such theory, which deals with electromagnetism, meteors, and other factors. He aims to solidify the proof for his theory via empirical means, mainly deep learning.</span>
+
   const spokesCardBack =
     <span className="project-description">
       Sike! Nothing to see here.
@@ -32,17 +37,21 @@ function Spokes() {
           <h2>The Premise</h2>
         </div>
         <div className="work-main">
-          <div className="ringImgDiv">
-            <img src={RingImg} alt="An image of Saturn's rings" className='ringsImg' />
-          </div>
-
-          <Flip
-            className="spokesCard"
-            name="spokesCard"
-            frontChild={spokesCardFront}
-            backChild={spokesCardBack}
-          >
-          </Flip>
+          { 
+            isMobile ? spokesCardFront :
+            <>
+              <div className="ringImgDiv">
+                <img src={RingImg} alt="An image of Saturn's rings" className='ringsImg' />
+              </div>
+              <Flip
+                className="spokesCard"
+                name="spokesCard"
+                frontChild={spokesCardFront}
+                backChild={spokesCardBack}
+              >
+              </Flip>
+            </>
+          }
 
         </div>
       </section>

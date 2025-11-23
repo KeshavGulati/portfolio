@@ -34,8 +34,10 @@ const Flip = ({ name, frontChild, backChild }) => {
 
   return (
     <div className={ `flipWrapper ${name}-wrapper` }
-        onMouseEnter={ () => handleEnter() }
-        onMouseLeave={ () => handleLeave() }
+        // onMouseEnter={ () => handleEnter() }
+        // onMouseLeave={ () => handleLeave() }
+        onClick={ () => setIsFlipped(!isFlipped) 
+          && setIsAnimating(true) }
         ref={ref}
     >
         <motion.div 

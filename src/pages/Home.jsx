@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useInView } from "framer-motion";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -9,47 +9,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faReact, faFigma, faHtml5, faCss3Alt, faJs, faNode } from "@fortawesome/free-brands-svg-icons";
 import umdImg from "../assets/umd-img.jpg";
 import Navbar from '../components/Navbar';
+import ProjectsSectionDesktop from '../components/ProjectsSectionDesktop.jsx';
+import ProjectsSectionMobile from '../components/ProjectsSectionMobile.jsx';
 import TypingText from "../components/ui/shadcn-io/typing-text/index.tsx";
+import useMediaQuery from '../utils/useMediaQuery.jsx';
 
 function App() {
-  const psRef = useRef(null);
-  const psInView = useInView(psRef);
-  
-  const ardourFront = <span className="project-span">RESEARCH PROJECT</span>
-  const ardourBack =
-    <span className="project-description"
-    style={{fontSize: "0.9rem"}}
-    >
-      I am a part of a project under Dr. Douglas P. Hamilton, a professor of Astronomy at the University of Maryland. We have been using Deep Learning methodologies to analyze dust clouds found over the B-ring of Saturn. <br />
-      <Link to={"/spokes"} className='spokesLink'>Read More</Link>
 
-    </span>
-  
-  const testudoFront = <span className="project-span">GAME THEORY</span>
-  const testudoBack =
-    <span className="project-description"
-      style={{fontSize: "0.9rem"}}
-    >
-      I worked on a  personal project where I replicated a very famous tournament in game theory called 'Axelrod's Tournament' to demonstrate the effectiveness of different strategies in an iterated prisoner's dilemma. <span> </span>
-      <a href="https://github.com/KeshavGulati/Mini-Axelrod-Tournament" target='__blank' className="gameTheoryLink">Read More</a>
-    </span>
-
-  const nexusFront = <span className="project-span">NEXUS</span>
-  const nexusBack = 
-    <span className="project-description">
-      Nexus is a very big and ambitious project that I am a part of with a team. I am personally responsible for designing and developing large parts of an online IDE with features such as live collab and AI integration that set it apart. It took a lot of work to bring this project to life, and we are continuing to improve it to better suit our niche. It can be viewed at 
-          <a href="https://nexusdevops.com/" className="nexus-link" target='__blank'> nexusdevops.com</a>.
-       <br />
-    </span>
-
-  const bigthinkFront = <span className="project-span">BIGTHINK AI</span>
-  const bigthinkBack =
-    <span className="project-description"
-    style={{fontSize: "0.9rem"}}
-    >
-      This was one of the first projects I ever worked on, and I had to interact with different people on the team, which gave me my first professional experience. <br />
-      <Link to="/bigthink" className='bigthink-link'>More Info</Link>
-    </span>
+  const isMobile = useMediaQuery("(max-width: 800px)");
+  const heroTextList = isMobile ? ["Designer", "Developer", "Engineer"] : ["Front-End Designer", "Full-Stack Developer", "ML/DL Enthusiast"];
 
   return (
     <div className="main">
@@ -60,7 +28,7 @@ function App() {
             Hi, I'm Keshav, <br />
             A <span>  </span>
             <TypingText
-              text={["Front-End Designer", "Full-Stack Developer", "ML/DL Enthusiast"]}
+              text={heroTextList}
               typingSpeed={75}
               pauseDuration={1500}
               showCursor={true}
@@ -72,47 +40,16 @@ function App() {
           </p>
         </FadeIn>
       </div>
-      <section className="projects-section">
-        <div className="projects-header header">
-          <h2>Projects</h2>
-        </div>
-        <div className="projects-main">
-          <Flip
-            name="ardour"
-            frontChild={ardourFront}
-            backChild={ardourBack}
-          >
-          </Flip>
-
-          <Flip
-            name="testudo"
-            frontChild={testudoFront}
-            backChild={testudoBack}
-          >
-          </Flip>
-          
-            <Flip
-              name="nexus"
-              frontChild={nexusFront}
-              backChild={nexusBack}
-            ></Flip>
-
-          <Flip
-            name="bigthink"
-            frontChild={bigthinkFront}
-            backChild={bigthinkBack}
-          >
-          </Flip>
-        </div>
-          <span className="ps">P.S: Hover over the boxes for more info</span>
-      </section>
+      { 
+        isMobile ? <ProjectsSectionMobile />
+          : <ProjectsSectionDesktop />
+      }
       <section className="skills-section">
         <div className="skills-header header">
           <h2>What i work with</h2>
         </div>
         <div className="skills-main">
           <FadeIn className="skills__react">
-            {/* <i className="fa-brands fa-react"></i> */}
             <FontAwesomeIcon className='icon' icon={ faReact } />
             <span>React</span>
           </FadeIn>
@@ -152,11 +89,15 @@ function App() {
               Graduation: Spring '25
             </p>
           </FadeIn>
-          <FadeIn>
+          {
+            isMobile ? <></>
+            :
+            <FadeIn>
             <div className="education-img">
               <img src={ umdImg } alt="An image of mckeldin mall at the University of Maryland, College Park." />
             </div>
           </FadeIn>
+          }
         </div>
       </section>
       <section className="contact-section">
@@ -168,8 +109,6 @@ function App() {
               <span className="emailValue font-normal text-lg">keshavgulati785@gmail.com</span>
               <br />
               <br />
-              <span className="mobile">Mobile</span> <br />
-              <span className="mobileValue font-normal text-lg">+1 (240) 886 8955</span>
             </FadeIn>
           </div>
         </div>

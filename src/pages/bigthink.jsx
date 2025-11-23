@@ -12,6 +12,8 @@ import { faReact, faFigma, faHtml5, faCss3Alt, faJs, faNode } from "@fortawesome
 import umdImg from "../assets/umd-img.jpg";
 import myPhoto from "../assets/haha4(github).jpeg";
 import Navbar from '../components/Navbar';
+import useMediaQuery from '../utils/useMediaQuery';
+import useEmblaCarousel from "embla-carousel-react";
 
 function Bigthink() {
   const psRef = useRef(null);
@@ -33,6 +35,22 @@ function Bigthink() {
       <a href="https://keshavgulati.github.io/bigthink-new/" className="bigthinknew-link" target='__blank'>Go To Site</a>
     </span>
   
+  const isMobile = useMediaQuery("(max-width: 800px)");
+  const [emblaRef] = useEmblaCarousel({ loop: false, dragFree: false });
+  const cards = 
+    [
+      { 
+        name: "bigthinkold",
+        frontChild: bigthinkoldFront,
+        backChild: bigthinkoldBack
+      },
+      {
+        name: "bigthinknew",
+        frontChild: bigthinknewFront,
+        backChild: bigthinknewBack
+      }
+    ]
+
   return (
     <div className="main">
       <div className="hero-nav-wrapper">
@@ -50,24 +68,52 @@ function Bigthink() {
         <div className="work-header header">
           <h2>The Work</h2>
         </div>
-        <div className="work-main">
-          <Flip
-            className="bigthinkold"
-            name="bigthinkold"
-            frontChild={bigthinkoldFront}
-            backChild={bigthinkoldBack}
-          >
-          </Flip>
+        {
 
-          <Flip
-            className="bigthinknew"
-            name="bigthinknew"
-            frontChild={bigthinknewFront}
-            backChild={bigthinknewBack}
-          >
-          </Flip>
+          isMobile ?
+          
+          <div className="overflow-hidden" ref={emblaRef}>
+            <div className="flex">
+              {cards.map((card, idx) => (
+                <div key={idx} className="
+                  flex-[0_0_100%] 
+                  px-4 py-6 
+                  flex justify-center items-center  
+                ">
+                  <Flip
+                    name={card.name}
+                    className={card.name}
+                    frontChild={card.frontChild}
+                    backChild={card.backChild}
+                  >                
+                  </Flip>
+                </div>
+              ))}
+            </div>
+          </div>
 
-        </div>
+          :
+
+          <div className="work-main">
+            <Flip
+              className="bigthinkold"
+              name="bigthinkold"
+              frontChild={bigthinkoldFront}
+              backChild={bigthinkoldBack}
+            >
+            </Flip>
+
+            <Flip
+              className="bigthinknew"
+              name="bigthinknew"
+              frontChild={bigthinknewFront}
+              backChild={bigthinknewBack}
+            >
+            </Flip>
+          </div>
+
+        }
+        
           {/* <motion.span
             className="ps"
             initial={{

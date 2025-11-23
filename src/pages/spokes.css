@@ -82,6 +82,15 @@
 }
 
 
+@media(max-width: 800px) {
+
+  .work-section { padding-bottom: 3em; }
+  .work-main { padding: 3em 0; margin-bottom: 3em;}
+
+
+}
+
+
 /* <--- Work Section End ---> */
 
 
@@ -102,7 +111,27 @@
 
 }
 
+@media(max-width: 800px) {
 
+  .myWorkSection {
+    height: fit-content;
+    padding-bottom: 2em;
+    width: 100%;
+    margin-top: 5em;
+
+  }
+  
+  .myWorkText {
+    position: relative;
+    font-size: 1rem;
+    top: 0;
+    transform: translateY(0);
+    margin-top: 2em;
+    min-width: 100%;
+
+  }
+
+}
 
 /* <--- My Work Secton End ---> */
 
@@ -127,12 +156,25 @@
   top: 50%;
   transform: translateY(-50%);
   font-size: 2rem;
-  list-style:square;
+  list-style: square;
   font-weight: 300;
 
 }
 
 .tools-main__li {
   margin-top: 1rem;
+
+}
+
+
+@media(min-width: 800px) {
+
+  .tools-main__ul {
+    font-size: 1rem;
+    font-weight: normal;
+
+  }
+
+  .tools-main { font-size: 1rem; }
 
 }
