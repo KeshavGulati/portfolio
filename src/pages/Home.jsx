@@ -6,7 +6,7 @@ import Flip from "../utils/Flip";
 import FadeIn from '../utils/FadeIn';
 import '../App.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faReact, faFigma, faHtml5, faCss3Alt, faJs, faNode } from "@fortawesome/free-brands-svg-icons";
+import { faReact, faFigma, faJs, faNode, faPython } from "@fortawesome/free-brands-svg-icons";
 import umdImg from "../assets/umd-img.jpg";
 import Navbar from '../components/Navbar';
 import ProjectsSectionDesktop from '../components/ProjectsSectionDesktop.jsx';
@@ -57,14 +57,6 @@ function App() {
             <FontAwesomeIcon className='icon' icon={ faFigma } />
             <span>Figma</span>
           </FadeIn>
-          <FadeIn className="skills__html">
-            <FontAwesomeIcon className='icon' icon={ faHtml5 } />
-            <span>HTML</span>
-          </FadeIn>
-          <FadeIn className="skills_css">
-            <FontAwesomeIcon className='icon' icon={ faCss3Alt } />
-            <span>CSS</span>
-          </FadeIn>
           <FadeIn className="skills_js">
             <FontAwesomeIcon className='icon' icon={ faJs } />
             <span>Javascript</span>
@@ -72,6 +64,10 @@ function App() {
           <FadeIn className="skills__node">
             <FontAwesomeIcon className='icon' icon={ faNode } />
             <span>Node</span>
+          </FadeIn>
+          <FadeIn className="skills__python">
+            <FontAwesomeIcon className='icon' icon={ faPython } />
+            <span>Python</span>
           </FadeIn>
         </div>
       </section>
