@@ -100,7 +100,7 @@ const ProjectsSectionMobile = () => {
         ))}
       </div>
 
-      <span className="ps text-center">P.S: Click the boxes for more info</span>
+      <span className="ps text-center">P.S: Click the boxes for more info, and swipe for more</span>
     </section>
   );
 };

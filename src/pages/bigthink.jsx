@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useInView } from "framer-motion";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -12,6 +12,9 @@ import { faReact, faFigma, faHtml5, faCss3Alt, faJs, faNode } from "@fortawesome
 import umdImg from "../assets/umd-img.jpg";
 import myPhoto from "../assets/haha4(github).jpeg";
 import Navbar from '../components/Navbar';
+import MobileNavbar from '../components/MobileNavbar';
+import MobileHeader from '../components/MobileHeader';
+import { MobileNavbarProvider, useMobileNavbar } from '../utils/MobileNavbarContext';
 import useMediaQuery from '../utils/useMediaQuery';
 import useEmblaCarousel from "embla-carousel-react";
 
@@ -51,10 +54,19 @@ function Bigthink() {
       }
     ]
 
+  const { isOpen, toggleNavbar } = useMobileNavbar();
+
   return (
     <div className="main">
       <div className="hero-nav-wrapper">
-        <Navbar />
+        {
+          isMobile ?
+            <>
+              <MobileHeader />
+              <MobileNavbar />
+            </>
+          : <Navbar />
+          }
         <FadeIn className="hero-section">
           <p className="hero-text">
             <p className="bigthink-heading">BigTh!nk AI</p>

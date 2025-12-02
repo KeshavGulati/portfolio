@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Flip from "../utils/Flip";
 import FadeIn from '../utils/FadeIn';
 import "../index.css";
 import "./spokes.css"
 import RingImg from "../assets/RingsImg.png";
 import Navbar from '../components/Navbar';
+import MobileNavbar from '../components/MobileNavbar';
+import MobileHeader from '../components/MobileHeader';
+import { MobileNavbarProvider, useMobileNavbar } from '../utils/MobileNavbarContext';
 import useMediaQuery from '../utils/useMediaQuery';
 
 function Spokes() {
@@ -18,10 +21,19 @@ function Spokes() {
       Sike! Nothing to see here.
     </span>
   
+  const { isOpen, toggleNavbar } = useMobileNavbar();
+
   return (
     <div className="main">
       <div className="hero-nav-wrapper">
-        <Navbar />
+        {
+          isMobile ?
+            <>
+              <MobileHeader />
+              <MobileNavbar />
+            </>
+            : <Navbar />
+        }
         <FadeIn className="hero-section">
           <p className="hero-text">
             <p className="spokes-heading">Research Fellow</p>

@@ -9,6 +9,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faReact, faFigma, faJs, faNode, faPython } from "@fortawesome/free-brands-svg-icons";
 import umdImg from "../assets/umd-img.jpg";
 import Navbar from '../components/Navbar';
+import MobileNavbar from '../components/MobileNavbar.jsx';
+import MobileHeader from '../components/MobileHeader.jsx';
+import { MobileNavbarProvider, useMobileNavbar } from '../utils/MobileNavbarContext.jsx';
 import ProjectsSectionDesktop from '../components/ProjectsSectionDesktop.jsx';
 import ProjectsSectionMobile from '../components/ProjectsSectionMobile.jsx';
 import TypingText from "../components/ui/shadcn-io/typing-text/index.tsx";
@@ -22,7 +25,15 @@ function App() {
   return (
     <div className="main">
       <div className="hero-nav-wrapper">
-        <Navbar />
+        {
+          isMobile ? 
+            <>
+              <MobileHeader />
+              <MobileNavbar />
+            </>
+            : <Navbar />
+          }
+        {/* <Navbar /> */}
         <FadeIn className="hero-section">
           <p className="hero-text">
             Hi, I'm Keshav, <br />
