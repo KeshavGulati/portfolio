@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useInView } from "framer-motion";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -39,7 +39,6 @@ function Bigthink() {
     </span>
   
   const isMobile = useMediaQuery("(max-width: 800px)");
-  const [emblaRef] = useEmblaCarousel({ loop: false, dragFree: false });
   const cards = 
     [
       { 
@@ -54,7 +53,25 @@ function Bigthink() {
       }
     ]
 
-  const { isOpen, toggleNavbar } = useMobileNavbar();
+  // --- Embla setup ---
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false });
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [scrollSnaps, setScrollSnaps] = useState([]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+
+    setScrollSnaps(emblaApi.scrollSnapList());
+
+    const onSelect = () => {
+      setSelectedIndex(emblaApi.selectedScrollSnap());
+    };
+
+    emblaApi.on("select", onSelect);
+    onSelect();
+
+    return () => emblaApi.off("select", onSelect);
+  }, [emblaApi]);
 
   return (
     <div className="main">
@@ -83,7 +100,7 @@ function Bigthink() {
         {
 
           isMobile ?
-          
+        <>
           <div className="overflow-hidden" ref={emblaRef}>
             <div className="flex">
               {cards.map((card, idx) => (
@@ -103,6 +120,21 @@ function Bigthink() {
               ))}
             </div>
           </div>
+
+          {/* --- Dots indicator --- */}
+          <div className="flex justify-center mt-4 gap-2">
+            {scrollSnaps.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => emblaApi && emblaApi.scrollTo(i)}
+                className={`
+                  w-3 h-3 rounded-full transition-all duration-300
+                  ${i === selectedIndex ? "bg-[#888]" : "bg-gray-300"}
+                `}
+              />
+            ))}
+          </div>
+        </>
 
           :
 
